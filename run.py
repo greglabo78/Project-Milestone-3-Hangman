@@ -2,11 +2,6 @@ import random
 
 
 # Color codes to be used within the game
-ALERT = "\033[91m"
-RESPONSE = "\033[92m"
-TEXT = "\033[0m"
-HIGHLIGHT = "\033[7m"
-
 COLOURS = {
     "red": "\033[31m",
     "green": "\033[32m",
@@ -90,23 +85,75 @@ def pick_a_word(words):
     return random.choice(words)
 
 
-def play_game(word):
+def initiate_game(word):
     """
-    The is function sets up the initial variables 
-    to enable the game to be played
+    This function sets up the initial variables to enable the game to be played
     """
     guessed_letters = []
     guessed_max = 6
     num_guesses = 0
     game_over = False
+    hangman_stage = 0
     
     # After initiating variables the game will print out 
     # its welcome statements to the user
     print(COLOURS["pink"] + "Welcome to the Hangman game!")
     print("The word has", COLOURS["cyan"], len(word), "letters.")
-    print("_" * len(word))
+    print(" ".join("_" * len(word)))
+    
+    return guessed_letters, guessed_max, num_guesses,hangman_stage
 
+
+
+def guess_word(word):
+    """
+    This function accepts user input and returns feedback 
+    on whether the input is correct or not
+    """
+    guessed_letters, guessed_max, num_guesses, hangman_stage = initiate_game(word)
+    game_over = False
+    
+    # loop until game is over
+    while not game_over:
+        guess = input("Guess a letter:\n ").lower()
+        
+        # Check if guess has already been made
+        if guess in guessed_letters:
+            print("You already guessed that letter")
+        else:
+            guessed_letters.append(guess)
+        
+        if guess in word:
+            print("Correct!")
+        else:
+            print(f"{COLOURS['red']} That is not the right option!")
+            num_guesses += 1
+            hangman_stage += 1
+        
+        for letter in word:
+            if letter in guessed_letters:
+                print(letter, end=" ")
+            else:
+                print("_", end=" ")
+        
+        print()
+
+        print(hangman_stages[hangman_stage])
+
+        # Check if the player won or lost
+        if set(word) == set(guessed_letters):
+            print("You win!")
+            game_over = True
+        elif num_guesses == guessed_max:
+            print(f"{COLOURS['red']}You lose! The word was {word}")
+            game_over = True
+
+
+           
 
 # Play Game
+
+
 word = pick_a_word(words)
-play_game(word)
+initiate_game(word)
+guess_word(word)
