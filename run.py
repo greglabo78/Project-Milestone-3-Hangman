@@ -16,3 +16,4 @@ COLOURS = {
     "cyan": "\033[36m",
     "purple": "\033[35m"
 }
+
