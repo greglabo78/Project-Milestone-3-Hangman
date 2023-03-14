@@ -20,6 +20,7 @@ COLOURS = {
 # Collection of words to be used in the game
 words = ['lagos', 'sweet', 'friend', 'japan', 'elephant', 'mountain', 'bicycle', 'taxi', 'fruit', 'bank']
 
+
 # List of hangman stages
 hangman_stages = [
     """
@@ -88,16 +89,24 @@ def pick_a_word(words):
     """
     return random.choice(words)
 
-# print(random.choice(words))
 
 def play_game(word):
     """
-    The is functiuon sets up the initial variables to enable the game to be played
+    The is function sets up the initial variables 
+    to enable the game to be played
     """
     guessed_letters = []
     guessed_max = 6
     num_guesses = 0
     game_over = False
+    
+    # After initiating variables the game will print out 
+    # its welcome statements to the user
+    print(COLOURS["pink"] + "Welcome to the Hangman game!")
+    print("The word has", COLOURS["cyan"], len(word), "letters.")
+    print("_" * len(word))
 
-# After initiating variables the game will print out its welcome statements to the user
-print(COLOURS["pink"] + "Welcome, to the Hangman game!")
+
+# Play Game
+word = pick_a_word(words)
+play_game(word)
