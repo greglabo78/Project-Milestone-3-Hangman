@@ -79,3 +79,4 @@ hangman_stages = [
        ===
     """
 ]
+
