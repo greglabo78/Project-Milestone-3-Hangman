@@ -1,5 +1,5 @@
 import random
-from art import HANGMAN
+
 
 # Color codes to be used within the game
 ALERT = "\033[91m"
@@ -17,3 +17,65 @@ COLOURS = {
     "purple": "\033[35m"
 }
 
+# Collection of words to be used in the game
+words = ['lagos', 'sweet', 'friend', 'japan', 'elephant', 'mountain', 'bicycle', 'taxi', 'fruit', 'bank']
+
+# List of hangman stages
+hangman_stages = [
+    """
+    +---+
+        |
+        |
+        |
+        |
+       ===
+    """,
+    """
+    +---+
+    O   |
+        |
+        |
+        |
+       ===
+    """,
+    """
+    +---+
+    O   |
+    |   |
+        |
+        |
+       ===
+    """,
+    """
+    +---+
+    O   |
+   /|   |
+        |
+        |
+       ===
+    """,
+    """
+    +---+
+    O   |
+   /|\  |
+        |
+        |
+       ===
+    """,
+    """
+    +---+
+    O   |
+   /|\  |
+   /    |
+        |
+       ===
+    """,
+    """
+    +---+
+    O   |
+   /|\  |
+   / \  |
+        |
+       ===
+    """
+]
