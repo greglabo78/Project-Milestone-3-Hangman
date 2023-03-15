@@ -92,7 +92,6 @@ def initiate_game(word):
     guessed_letters = []
     guessed_max = 6
     num_guesses = 0
-    game_over = False
     hangman_stage = 0
     
     # After initiating variables the game will print out 
@@ -101,8 +100,7 @@ def initiate_game(word):
     print("The word has", COLOURS["cyan"], len(word), "letters.")
     print(" ".join("_" * len(word)))
     
-    return guessed_letters, guessed_max, num_guesses,hangman_stage
-
+    return guessed_letters, guessed_max, num_guesses, hangman_stage
 
 
 def guess_word(word):
@@ -149,7 +147,21 @@ def guess_word(word):
             game_over = True
 
 
-           
+def play_again():
+    """
+    This functions keeps the game running without 
+    having to restart the program eanbling user
+    to have a continuos gaming experience
+    """
+    while True:
+        choice = input("Do you want to play again? (y/n): ")
+        if choice.lower() == "y":
+            guess_word(word)
+        elif choice.lower() == "n":
+            raise SystemExit("Game Over..\n")
+        else:
+            print("Invalid choice. Please enter 'y' or 'n'.")
+
 
 # Play Game
 
@@ -157,3 +169,4 @@ def guess_word(word):
 word = pick_a_word(words)
 initiate_game(word)
 guess_word(word)
+play_again()
