@@ -95,19 +95,20 @@ def initiate_game(word):
     hangman_stage = 0
     
     # After initiating variables the game will print out 
-    # its welcome statements to the user
-    print(COLOURS["pink"] + "Welcome to the Hangman game!")
-    print("The word has", COLOURS["cyan"], len(word), "letters.")
-    print(" ".join("_" * len(word)))
+    
     
     return guessed_letters, guessed_max, num_guesses, hangman_stage
 
 
 def guess_word(word):
     """
-    This function accepts user input and returns feedback 
-    on whether the input is correct or not
+    This function will print welcome statements 
+    run the main function of the game
     """
+    print(COLOURS["pink"] + "Welcome to the Hangman game!")
+    print("The word has", COLOURS["cyan"], len(word), "letters.")
+    print(" ".join("_" * len(word)))
+    
     guessed_letters, guessed_max, num_guesses, hangman_stage = initiate_game(word)
     game_over = False
     
