@@ -48,4 +48,41 @@ Lucidchart was used to give a logical representation of the game
     * "n" will have the game quit saying "Game Over"
 
 
+## Gaming Experience (Existing features)
+
+* Welcome statements 
+
+![Welcome](documentation/welcome.png)
+
+
+* Failed option - player choice letter does not match with any letter in the secret word
+
+![Failed](documentation/failedoption.png)
+
+
+* Correct Option - player choice letter matches with one of the letters in the secret word
+
+
+![Correct](documentation/rightoption.png)
+
+* You Lose Statement - player has used up all tries and did not succeed in guessing the secret word
+
+![Lose](documentation/youloose.png)
+
+
+* You Win Statement - player has succeded in guesing the secret word
+
+
+![Win](documentation/youwin.png)
+
+
+## Technology
+* Heroku
+* Github
+* Lucidchart
+* PEP8 
+
+## Testing
+
+
 
