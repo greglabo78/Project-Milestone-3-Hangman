@@ -1,3 +1,6 @@
+"""
+This is a module for generating random numbers
+"""
 import random
 import gspread
 from google.oauth2.service_account import Credentials
@@ -43,7 +46,6 @@ def authenticate():
 
         except gspread.exceptions.CellNotFound:
             print("Invalid username or password. Please try again")
-                
         attempts += 1
 
     print("Maximum authentication attempts reached. Exiting")
