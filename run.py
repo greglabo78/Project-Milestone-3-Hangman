@@ -65,8 +65,8 @@ COLOURS = {
 
 # Collection of words to be used in the game
 words = [
-    'lagos', 'sweet', 'friend', 'japan', 'elephant', 'mountain',
-    'bicycle', 'taxi', 'fruit', 'bank'
+    'lagos', 'rhino', 'friend', 'zebra', 'pelican', 'stingray',
+    'rockies', 'taxi', 'fruit', 'bank'
 ]
 
 # List of hangman stages
