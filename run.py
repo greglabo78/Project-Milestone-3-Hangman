@@ -44,7 +44,7 @@ def authenticate():
             else:
                 print("Invalid username or password. Please try again")
 
-        except gspread.exceptions.CellNotFound:
+        except AttributeError:
             print("Invalid username or password. Please try again")
         attempts += 1
 
