@@ -48,7 +48,7 @@ def authenticate():
             print("Invalid username or password. Please try again")
         attempts += 1
 
-    print("Maximum authentication attempts reached. Exiting")
+    print("Maximum authentication attempts reached....Exiting")
     raise SystemExit
 
 
@@ -167,11 +167,13 @@ def guess_word(word):
     # loop until game is over
     while not game_over:
         try:
-            guess = input("Guess a letter:\n").lower()
+            guess = input("Guess a letter (enter 'q' to quit):\n").lower()
+            if guess == "q":
+                raise SystemExit(f"{COLOURS['yellow']}quitting game....")
             if not guess.isalpha() or len(guess) != 1:
                 raise TypeError
         except TypeError:
-            print("Please enter a single alphabetic letter!")
+            print(f"{COLOURS['yellow']}Please enter a single alphabetic letter!")
             continue
 
         # Check if guess has already been made
@@ -220,7 +222,7 @@ def play_again():
             initiate_game(word)
             guess_word(word)
         elif choice.lower() == "n":
-            raise SystemExit("Game Over..\n")
+            raise SystemExit(f"{COLOURS['pink']}Game Over..\n")
         else:
             print("Invalid choice. Please enter 'y' or 'n'.")
 
