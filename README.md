@@ -84,5 +84,17 @@ Lucidchart was used to give a logical representation of the game
 
 ## Testing
 
+CI online Tester (Python Validator) code passed with no errors
 
+![Python](documentation/cipythonvalidator.png)
+
+
+### Funtional Tests
+
+ID| Test Label | Test Action | Expected Outcome | Test Outcome
+--- | --- | --- | --- | --- |
+ 1| Welcome to the Hangman Game | Run the game | The player is presented with a welcome message | PASS
+2| Guess the word| blank space displayed for input | the player can input data | PASS
+3| Failed attempts| player selects a letter not part of the chosen word | the number of attempts count should incrase by 1 | PASS
+4| Failed attempts | player selects a letter not part of the chosen word | 
 

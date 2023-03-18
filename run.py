@@ -113,7 +113,13 @@ def guess_word(word):
 
     # loop until game is over
     while not game_over:
-        guess = input("Guess a letter:\n").lower()
+        try:
+            guess = input("Guess a letter:\n").lower()
+            if not guess.isalpha() or len(guess) != 1:
+                raise TypeError
+        except TypeError:
+            print("Please enter a single alphabetic letter!")
+            continue
 
         # Check if guess has already been made
         if guess in guessed_letters:
