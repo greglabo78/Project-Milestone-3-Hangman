@@ -144,7 +144,7 @@ def initiate_game(word):
     This function sets up the initial variables to enable the game to be played
     """
     guessed_letters = []
-    guessed_max = 6
+    guessed_max = len(word)
     num_guesses = 0
     hangman_stage = 0
 
@@ -202,7 +202,7 @@ def guess_word(word):
         if set(word) == set(guessed_letters):
             print("You win!")
             game_over = True
-        elif num_guesses == guessed_max:
+        elif num_guesses == len(word):
             print(f"{COLOURS['red']}You lose! The word was {word}")
             game_over = True
 
