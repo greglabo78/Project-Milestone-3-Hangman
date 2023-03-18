@@ -1,4 +1,4 @@
-# THE Hangman Game
+# The Hangman Game
 ## Introduction
 The game is a simple terminal game implemented in Python. Hangman is a classic word guessing game where the player tries to guess a secret word one letter at a time. The player has a limited number of attempts to guess the word correctly. For each incorrect guess, a part of a hanging stick figure is displayed. The player wins if they guess the word correctly before the stick figure is completely drawn.
 
