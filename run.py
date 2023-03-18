@@ -135,7 +135,8 @@ def pick_a_word(words):
     This function will select a random word from the list of words
     for the user to guess
     """
-    return random.choice(words)
+    random.shuffle(words)
+    return words[0]
 
 
 def initiate_game(word):
@@ -180,7 +181,8 @@ def guess_word(word):
             guessed_letters.append(guess)
 
         if guess in word:
-            print("Correct!")
+            print(f"{COLOURS['blue']}Correct!")
+            num_guesses += 1
         else:
             print(f"{COLOURS['red']} That is not the right option!")
             num_guesses += 1
@@ -214,6 +216,8 @@ def play_again():
     while True:
         choice = input("Do you want to play again? (y/n): ")
         if choice.lower() == "y":
+            word = pick_a_word(words)
+            initiate_game(word)
             guess_word(word)
         elif choice.lower() == "n":
             raise SystemExit("Game Over..\n")
