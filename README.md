@@ -121,10 +121,19 @@ ID| Test Label | Test Action | Expected Outcome | Test Outcome
 
 ## User stories tested
 1. Welcome Statements
+
+![welcomestate](documentation/welcome_state.png)
 2. Authentication of player
-3. Access to game
+
+![playrauth](documentation/player_auth.png)
+3. View secret word if not successful
+![contin](documentation/continous.png)
+
 4. Continuous loop of play
+![contin](documentation/youwin.png)
 5. Navigate through the game
+
+![nav](documentation/navigate.png)
 
 # Deployment
 The site was deployed to Heroku. The steps to deploy are as follows:
@@ -145,10 +154,10 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 
 
 # Credits 
-* code line 59 - 63 COLORS from mittnamkenny 
-* Lucidchart 
-* CI Python linter from Code institute
-* Am i responsive
+* Lucidchart - visualisation of logic within the code
+* CI Python linter from Code institute - for proer validation of the python code layout
+* Am i responsive - To review the responsiveness of the terminal on different screens
+* Stackoverflow - information on the implementation of colors to enahnce use experience
 
 # Acknowledgements
 Thanks to two mentors that really helped me during this journey Brian Macharia and Mo Shami. Thnak you Mo Shami for your gntle nudge to do more and get my project in the best state. Very thankful.

@@ -40,7 +40,7 @@ def authenticate():
                 return
             elif user_data is None:
                 attempts += 1
-                print("Invalid username or password. Please tyr again")
+                print("Invalid username or password. Please try again")
             else:
                 print("Invalid username or password. Please try again")
 
@@ -52,10 +52,9 @@ def authenticate():
     raise SystemExit
 
 
-# Color codes to be used within the game
-COLOURS = {
+# Color to enhance user experience
+UX = {
     "red": "\033[31m",
-    "green": "\033[32m",
     "yellow": "\033[33m",
     "blue": "\033[34m",
     "pink": "\033[95m",
@@ -144,7 +143,7 @@ def initiate_game(word):
     This function sets up the initial variables to enable the game to be played
     """
     guessed_letters = []
-    guessed_max = len(word)
+    guessed_max = 6
     num_guesses = 0
     hangman_stage = 0
 
@@ -154,10 +153,14 @@ def initiate_game(word):
 def guess_word(word):
     """
     This function will print welcome statements
+    Print the number of letters for the secret word
+    provide blank spaces to be guessed
+    will provide a quitting experience if "q" is selected
+    while game is running
     run the main function of the game
     """
-    print(COLOURS["pink"] + "Welcome to the Hangman game!")
-    print("The word has", COLOURS["cyan"], len(word), "letters.")
+    print(UX["pink"] + "Welcome to the Hangman game!")
+    print("The word has", UX["cyan"], len(word), "letters.")
     print(" ".join("_" * len(word)))
 
     guessed_letters, guessed_max, num_guesses, hangman_stage = \
@@ -169,11 +172,12 @@ def guess_word(word):
         try:
             guess = input("Guess a letter (enter 'q' to quit):\n").lower()
             if guess == "q":
-                raise SystemExit(f"{COLOURS['yellow']}quitting game....")
+                raise SystemExit(f"{UX['yellow']}quitting game....")
             if not guess.isalpha() or len(guess) != 1:
                 raise TypeError
         except TypeError:
-            print(f"{COLOURS['yellow']}Please enter a single alphabetic letter!")
+            print(
+                f"{UX['yellow']}Please enter a single alphabetic letter!")
             continue
 
         # Check if guess has already been made
@@ -183,10 +187,10 @@ def guess_word(word):
             guessed_letters.append(guess)
 
         if guess in word:
-            print(f"{COLOURS['blue']}Correct!")
+            print(f"{UX['blue']}Correct!")
             num_guesses += 1
         else:
-            print(f"{COLOURS['red']} That is not the right option!")
+            print(f"{UX['red']} That is not the right option!")
             num_guesses += 1
             hangman_stage += 1
 
@@ -204,8 +208,8 @@ def guess_word(word):
         if set(word) == set(guessed_letters):
             print("You win!")
             game_over = True
-        elif num_guesses == len(word):
-            print(f"{COLOURS['red']}You lose! The word was {word}")
+        elif num_guesses == guessed_max:
+            print(f"{UX['red']}You lose! The word was {word}")
             game_over = True
 
 
@@ -222,7 +226,7 @@ def play_again():
             initiate_game(word)
             guess_word(word)
         elif choice.lower() == "n":
-            raise SystemExit(f"{COLOURS['pink']}Game Over..\n")
+            raise SystemExit(f"{UX['pink']}Game Over..\n")
         else:
             print("Invalid choice. Please enter 'y' or 'n'.")
 
